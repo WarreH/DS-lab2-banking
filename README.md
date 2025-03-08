@@ -1,4 +1,8 @@
 # Setup
+## Install docker
+````
+sudo apt install docker.io
+````
 ## Run server
 ````
 docker build -f .\DockerfileServer -t banking-server .
