@@ -1,0 +1,11 @@
+# Step 1: Use official Node.js image as the base
+FROM node:20-slim
+
+# Step 2: Set the working directory
+WORKDIR /usr/app
+
+# Step 3: Copy the JavaScript file into the container
+COPY clients.js /usr/app/client.js
+
+# Step 5: Set the command to run your JS file
+ENTRYPOINT ["node", "/usr/app/client.js"]

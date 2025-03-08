@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: ./
+      dockerfile: DockerfileServer
+    container_name: banking-server
+    ports:
+      - "8080:8080"
+    networks:
+      - my-network
+
+  client:
+    build:
+      context: ./
+      dockerfile: DockerfileClient
+    container_name: banking-client
+    depends_on:
+      - backend
+    environment:
+      - BASE_URL=http://backend:8080
+    networks:
+      - my-network
+
+networks:
+  my-network:
